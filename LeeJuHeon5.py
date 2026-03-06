@@ -89,7 +89,7 @@ merged["residual"] = merged["y"] - merged["yhat"]
 fig4, ax2 = plt.subplots(figsize=(14, 4))
 ax2.plot(merged["ds"], merged["residual"], color='purple', marker='o', linestyle='-', label='Residual')
 ax2.axhline(0, color = 'black', linestyle = '--')
-ax2.title("Residual Analysis (Actual - Predicted)")
+ax2.set_title("Residual Analysis (Actual - Predicted)")
 ax2.set_xlabel("Year")
 ax2.set_ylabel("Residual")
 ax2.legend()
@@ -109,6 +109,7 @@ st.pyplot(fig4)
 st.subheader("📌 Residual Summary Statistics")
 # TODO: merged["residual"].describe()를 출력하세요.
 st.dataframe(data=merged["residual"].describe(), width='stretch')
+
 
 
 
