@@ -69,7 +69,7 @@ ax.plot(df['ds'], df["y"], color='blue', linestyle='-', marker='o', label='Actua
 ax.plot(forecast["ds"], forecast["yhat"], color='red', linestyle='--', label='Predicted')
 ax.fill_between(forecast["ds"], forecast["yhat_lower"], forecast["yhat_upper"], color = 'pink', label='Prediction Interval')
 
-ax.title("Sunspots: Actual vs. Predicted with Prediction Intervals")
+ax.set_title("Sunspots: Actual vs. Predicted with Prediction Intervals")
 ax.set_xlabel("Year")
 ax.set_ylabel("Sun Activity")
 ax.legend()
@@ -82,12 +82,12 @@ st.pyplot(fig3)
 st.subheader("📉 Residual Analysis (예측 오차 분석)")
 
 # TODO: df와 forecast를 'ds' 기준으로 병합하여 residual 컬럼을 생성하세요.
-merged = df_res.merge(forecast, how="inner", on = "ds")
+merged = df.merge(forecast, how="inner", on = "ds")
 merged["residual"] = merged["y"] - merged["yhat"]
 
 # TODO: residual 시계열을 시각화하세요.
 fig4, ax2 = plt.subplots(figsize=(14, 4))
-ax2.plot(merged["ds"], merged["residual"], color='purple', marker='o', linestyle='-', label='Residual')
+ax2.set_plot(merged["ds"], merged["residual"], color='purple', marker='o', linestyle='-', label='Residual')
 ax2.axhline(0, color = 'black', linestyle = '--')
 ax2.title("Residual Analysis (Actual - Predicted)")
 ax2.set_xlabel("Year")
@@ -109,5 +109,6 @@ st.pyplot(fig4)
 st.subheader("📌 Residual Summary Statistics")
 # TODO: merged["residual"].describe()를 출력하세요.
 st.dataframe(data=merged["residual"].describe(), width='stretch')
+
 
 
