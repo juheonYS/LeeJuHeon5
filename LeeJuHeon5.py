@@ -51,7 +51,7 @@ st.pyplot(fig1)
 st.subheader("📊 Forecast Components")
 # TODO: model.plot_components()를 사용하여 구성요소를 시각화하세요.
 fig2 = model.plot_components(forecast)
-st.pyplt(fig2)
+st.pyplot(fig2)
 
 # ----------------------------------
 # [5] 커스텀 시각화: 실제값 vs 예측값 + 신뢰구간
@@ -109,4 +109,5 @@ st.pyplot(fig4)
 st.subheader("📌 Residual Summary Statistics")
 # TODO: merged["residual"].describe()를 출력하세요.
 st.dataframe(data=merged["residual"].describe(), width='stretch')
+
 
